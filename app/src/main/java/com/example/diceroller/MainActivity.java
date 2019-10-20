@@ -17,7 +17,9 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-EditText inputtext ;
+    EditText inputtext;
+    int clickcount=0 ;
+    int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,17 +58,28 @@ EditText inputtext ;
 
         return super.onOptionsItemSelected(item);
     }
-    public void on_button_click(View view){
+
+    public void on_button_click(View view) {
+
+        clickcount=clickcount+1;
+
         TextView tv = this.findViewById(R.id.textView);
+        TextView tv2 = this.findViewById(R.id.textView2);
         Random rand = new Random();
-        int number= rand.nextInt(6)+1;
-         tv.setText(Integer.toString(number));
-        inputtext =  this.findViewById(R.id.textBox);
-         String num = inputtext.getText().toString();
-         if(num.equals (Integer.toString(number))) {
-             tv.setText("Congratulations");
+        int number = rand.nextInt(6) + 1;
+        tv.setText(Integer.toString(number));
+        inputtext = this.findViewById(R.id.textBox);
+        String num = inputtext.getText().toString();
 
-         }
+        if (num.equals(Integer.toString(number))) {
+
+            tv.setText("Congratulations");
+
+              count +=1;
+
+
+
     }
-
-}
+        tv2.setText(Integer.toString(count));
+      }
+   }
